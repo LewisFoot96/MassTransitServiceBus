@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>C:\Users\lfoot\source\repos\MassTransitServiceBus\MassTransitServiceBus\ExampleWorkerService\Properties\PublishProfiles\registry.hub.docker.com_lfoot91%40hotmail.co.uk.pubxml</_LastSelectedProfileId>
+    <ActiveDebugProfile>Container (Dockerfile)</ActiveDebugProfile>
+  </PropertyGroup>
+</Project>

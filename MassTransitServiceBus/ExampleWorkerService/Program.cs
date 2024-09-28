@@ -13,23 +13,23 @@ builder.Services.AddMassTransit(config =>
 
     config.AddConsumers(typeof(DeleteExamPaperConsumer).Assembly);
 
-    config.UsingAzureServiceBus((context, cfg) =>
+    config.UsingInMemory((context, cfg) =>
     {
-        cfg.Host("connection string to azure service bus");
+       // cfg.Host("connection string to azure service bus");
 
         cfg.ConfigureEndpoints(context);
 
-        cfg.Publish<CreateExamPaper>(x =>
-        {
-            x.EnablePartitioning = true;
-        });
+        //cfg.Publish<CreateExamPaper>(x =>
+        //{
+        //    x.EnablePartitioning = true;
+        //});
 
-        cfg.SubscriptionEndpoint<DeleteExamPaper>("subscription-name", e =>
-        {
-            e.Filter = new SqlRuleFilter("1 = 1");
+        //cfg.SubscriptionEndpoint<DeleteExamPaper>("subscription-name", e =>
+        //{
+        //    e.Filter = new SqlRuleFilter("1 = 1");
 
-            e.ConfigureConsumer<DeleteExamPaperConsumer>(context);
-        });
+        //    e.ConfigureConsumer<DeleteExamPaperConsumer>(context);
+        //});
     });
 });
 
