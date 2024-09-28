@@ -1,10 +1,5 @@
 using ExampleWorkerService.Infrastructure;
-using MassTransit.TestFramework.ForkJoint.Contracts;
-using MassTransit.Testing;
 using MessageContracts;
-using Microsoft.Extensions.DependencyInjection;
-using System.Net.Http.Json;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace FunctionalTests
 {
@@ -14,9 +9,17 @@ namespace FunctionalTests
         [TestMethod]
         public async Task TestMethod1()
         {
+            //Can also test database interactions
             await Task.Delay(10000);
             var consumerTestHarness = TestHarness.GetConsumerHarness<DeleteExamPaperConsumer>();
             Assert.IsTrue(await consumerTestHarness.Consumed.Any<DeleteExamPaper>(x => x.Context.Message.ExamName == "Test"));
+
+            //Test publish message. 
+            await TestHarness.Bus.Publish(new DeleteExamPaper
+            { ExamName = "NewTest"});
+
+            Assert.IsTrue(await consumerTestHarness.Consumed.Any<DeleteExamPaper>(x => x.Context.Message.ExamName == "NewTest"));
+
         }
     }
 }

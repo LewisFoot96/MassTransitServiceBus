@@ -19,7 +19,6 @@ builder.Services.AddMassTransit(config =>
 
         cfg.ConfigureEndpoints(context);
 
-
         cfg.Publish<CreateExamPaper>(x =>
         {
             x.EnablePartitioning = true;
