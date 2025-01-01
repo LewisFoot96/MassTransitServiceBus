@@ -4,3 +4,5 @@ obj/
 riderModule.iml
 /_ReSharper.Caches/
 .vs/
+/MassTransitServiceBus/ExampleWorkerService/Properties/PublishProfiles/registry.hub.docker.com_lfoot91@hotmail.co.uk.pubxml
+/MassTransitServiceBus/ExampleWorkerService/Properties/PublishProfiles/registry.hub.docker.com_lfoot91@hotmail.co.uk.pubxml.user

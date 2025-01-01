@@ -12,6 +12,7 @@ namespace FunctionalTests
             //Can also test database interactions
             await Task.Delay(10000);
             var consumerTestHarness = TestHarness.GetConsumerHarness<DeleteExamPaperConsumer>();
+            //Worker service tests this, asserting on message
             Assert.IsTrue(await consumerTestHarness.Consumed.Any<DeleteExamPaper>(x => x.Context.Message.ExamName == "Test"));
 
             //Test publish message. 
